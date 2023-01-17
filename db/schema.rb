@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_060425) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_17_062824) do
+  create_table "csv_data", force: :cascade do |t|
+    t.date "date"
+    t.integer "value"
+    t.string "domain_name"
+    t.integer "csv_file_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["csv_file_id"], name: "index_csv_data_on_csv_file_id"
+  end
+
+  create_table "csv_files", force: :cascade do |t|
+    t.string "filename"
+    t.datetime "uploaded"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_csv_files_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "full_name"
     t.string "uid"
@@ -27,4 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_060425) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "csv_data", "csv_files"
+  add_foreign_key "csv_files", "users"
 end

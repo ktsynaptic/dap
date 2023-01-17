@@ -5,4 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'welcome#index'
+
+  post '/csv_import', to: 'csv#import'
+  get '/file/:id', to: 'file#show'
 end
