@@ -11,5 +11,9 @@ class CsvDatum < ApplicationRecord
       data.save!
     end
   end
+
+  def self.find_data(file_id)
+    CsvDatum.where("csv_file_id == file_id")
+  end
 end
 

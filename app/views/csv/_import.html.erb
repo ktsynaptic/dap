@@ -1,0 +1,5 @@
+<h3>Import File</h3>
+<%= form_with url: "/csv_import", multipart: true do |form| %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload File" %>
+<% end %>

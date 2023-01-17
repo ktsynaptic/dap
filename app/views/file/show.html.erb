@@ -1,0 +1,7 @@
+<% if @file.nil? %>
+  <%= render "file/file_not_found" %>
+<% elsif @file.user_id != current_user.id %>
+  <%= render "file/permission_denied" %>
+<% else %>
+  <%= render "file/view_csv" %>
+<% end %>
