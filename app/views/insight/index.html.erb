@@ -1,4 +1,11 @@
 <h1>Data Insights</h1>
+<div>
+  <h3>Send report via mail</h3>
+  <%= form_with url: "/mail", method: :post, multipart: true do |form| %>
+    <%= form.text_field :email_to %>
+    <%= submit_tag "Send report" %>
+  <% end %>
+</div>
 <p> <h2>Max Value Every Day</h2>
   <%= line_chart @rows.group(:domain_name).group_by_week(:date).maximum(:value) %>
 </p>

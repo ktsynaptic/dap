@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/file/:id', to: 'file#show'
   get '/template', to: 'csv#template'
   get '/insight', to: 'insight#index'
+  post '/mail', to: 'insight#send_mail'
 end
