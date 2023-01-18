@@ -1,0 +1,11 @@
+<h1>Data Insights</h1>
+<p> <h2>Max Value Every Day</h2>
+  <%= line_chart @rows.group(:domain_name).group_by_week(:date).maximum(:value) %>
+</p>
+<p> <h2>Average values by day</h2>
+<%= line_chart @rows.group(:domain_name).group_by_week(:date).average(:value) %>
+</p>
+
+<p>  <h2>Median Value</h2>
+<%= InsightGenerator.get_median(current_user.id) %>
+</p>

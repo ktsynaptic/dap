@@ -1,7 +1,7 @@
 class CsvController < ApplicationController
   def import
     if params[:file].content_type != "text/csv"
-      flash[:error] = "invalid file type"
+      flash[:error] = "Invalid file type"
       return
     end
     CsvFile.import(params[:file], current_user.id, Time.now)

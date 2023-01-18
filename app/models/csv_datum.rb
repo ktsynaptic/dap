@@ -12,8 +12,12 @@ class CsvDatum < ApplicationRecord
     end
   end
 
-  def self.find_data(file_id)
-    CsvDatum.where("csv_file_id == file_id")
+  def self.file_data(file_id)
+    CsvDatum.where(csv_file_id: file_id)
+  end
+
+  def self.files_data(file_ids)
+    CsvDatum.where(csv_file_id: file_ids)
   end
 end
 

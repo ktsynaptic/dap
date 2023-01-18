@@ -1,7 +1,8 @@
-<% if @file.nil? %>
+<% if @access == 0 %>
   <%= render "file/file_not_found" %>
-<% elsif @file.user_id != current_user.id %>
+<% elsif @access == -1 %>
   <%= render "file/permission_denied" %>
-<% else %>
+<% elsif @access == 1 %>
+  <% @file = CsvFile.get_file(@file_id) %>
   <%= render "file/view_csv" %>
 <% end %>
