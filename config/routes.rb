@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   post '/csv_import', to: 'csv#import'
   get '/file/:id', to: 'file#show'
+  get '/template', to: 'csv#template'
 end

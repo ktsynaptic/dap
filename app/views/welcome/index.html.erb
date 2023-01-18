@@ -1,6 +1,8 @@
 <h1>Data analytics platform</h1>
 <%= render "user/session" %>
 <% if current_user %>
+
+  <p><a href="/template">Download Template</a></p>
   <%= render "csv/import" %>
   <%= render "csv/view_all" %>
 <% end %>
